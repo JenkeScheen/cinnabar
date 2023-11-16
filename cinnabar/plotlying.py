@@ -324,3 +324,4 @@ def _master_plot(
         fig.write_html(filename)
     else:
         fig.write_image(filename)
+    return fig

@@ -103,7 +103,7 @@ def _master_plot(
 
     Returns
     -------
-
+    fig: matplotlib figure object
     """
     nsamples = len(x)
     # aesthetics
@@ -273,7 +273,7 @@ def plot_DDGs(
 
     Returns
     -------
-    Nothing
+    figure object (matplotlib or plotly depending on bool `plotly`)
     """
 
     assert (
@@ -341,7 +341,7 @@ def plot_DDGs(
         y_data = np.asarray(y)
 
     if plotly:
-        plotlying._master_plot(
+        return plotlying._master_plot(
             x_data,
             y_data,
             xerr=xerr,
@@ -357,7 +357,7 @@ def plot_DDGs(
             **kwargs,
         )
     else:
-        _master_plot(
+        return _master_plot(
             x_data,
             y_data,
             xerr=xerr,
@@ -412,7 +412,7 @@ def plot_DGs(
 
     Returns
     -------
-
+    figure object (matplotlib or plotly depending on bool `plotly`)
     """
 
     # data
@@ -428,7 +428,7 @@ def plot_DGs(
         y_data = y_data - np.mean(y_data) + shift
 
     if plotly:
-        plotlying._master_plot(
+        return plotlying._master_plot(
             x_data,
             y_data,
             xerr=xerr,
@@ -446,7 +446,7 @@ def plot_DGs(
             **kwargs,
         )
     else:
-        _master_plot(
+        return _master_plot(
             x_data,
             y_data,
             xerr=xerr,
@@ -507,7 +507,7 @@ def plot_all_DDGs(
 
     Returns
     -------
-
+    figure object (matplotlib or plotly depending on bool `plotly`)
     """
 
     nodes = graph.nodes(data=True)
@@ -540,7 +540,7 @@ def plot_all_DDGs(
     yerr_ = np.array(yerr)
 
     if plotly:
-        plotlying._master_plot(
+        return plotlying._master_plot(
             x_data_,
             y_data_,
             xerr=xerr_,
@@ -557,7 +557,7 @@ def plot_all_DDGs(
         )
 
     else:
-        _master_plot(
+        return _master_plot(
             x_data_,
             y_data_,
             xerr=xerr_,
